@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Photo</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body background="background.jpg">
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    	<h1>Photo Blender Serverless App</h1>
+	  </div>
+	</nav>
+
+	<div class="header">
+	
+	</div>
+	<div class="container">
+		0
+	<script type="text/javascript">
+
+		filename = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg", "7.jpg"];
+		 var names;
+		 for(var i=0; i<filename.length; i++){
+
+		 names = "images/" + filename[i];
+
+		 document.write("<a href='upload.html' name='"+names+"'><img onclick='imageselected(this.src)' style='margin:10px; padding:10px' width='300px' height='300px' src='"+names+"'/></a>");
+		 function imageselected(_src){
+		 	var list=_src.split("/")
+		 	var name=list[list.length-1]
+		 	//alert(name)
+			localStorage.setItem('path',name)			
+		}
+		}
+	</script>
+		
+	</div>
+<!--<div id="top_side">
+		<a href="upload.html"> <img src="filea.png" width="200px" height="200px"></a>
+		<a href="upload.html"> <img src="fileb.png" width="200px" height="200px"></a>
+		<a href="upload.html"> <img src="filec.png" width="200px" height="200px"></a>
+	</div>
+-->
+	
+	<script src="js/custom-file-input.js"></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.271.1.min.js"></script>
+	<script type="text/javascript" src="./upload.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+</body>
+</html>
